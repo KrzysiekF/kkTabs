@@ -1,7 +1,7 @@
 kkTabs jQuery Plugin
 ======
 
-jQuery plugin for responsive tabs
+jQuery plugin for tabs
 
 
 ## COMING SOON
