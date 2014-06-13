@@ -4,10 +4,7 @@
         <title>kkTabs jQuery Plugin</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <script type="text/javascript" src="js/jQuery.js"></script>
-
         <link type="text/css" rel="stylesheet" href="css/style.css" />
-
         <link rel="shortcut icon" href="/favicon.ico" />
 
         <!--[if lt IE 9]>
@@ -19,8 +16,30 @@
     <!--[if IE 8]><body class="ie8"><![endif]-->
     <!--[if IE 9]><body class="ie9"><![endif]-->
     <!--[if gt IE 9]><!--><body><!--<![endif]-->
-        <div class="box">
-            <h1>COMING SOON</h1>
+        <div class="row">
+            <div class="large-12 column text-center">
+                <h1>COMING SOON</h1>
+                <div class="tabs-demo-1">
+                    <div class="js-tab">
+                        <h2>Tytuł Zakładki 1</h2>
+                        <p>Treść zakładki 1</p>
+                    </div>
+                    <div class="js-tab">
+                        <h2>Tytuł Zakładki 2</h2>
+                        <p>Treść zakładki 2</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <script type="text/javascript" src="js/jQuery.1.11.1.min.js"></script>
+        <script type="text/javascript" src="../kkTabs/js/kkTabs.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.tabs-demo-1').kkTabs({
+                    showTitle : true
+                });
+            });
+        </script>
     </body>
 </html>

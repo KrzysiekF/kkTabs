@@ -1,0 +1,6 @@
+@import url('normalize.css');
+@import url('foundation.min.css');
+
+body {
+    font-family: Arial, Tahoma, sans-serif;
+}
