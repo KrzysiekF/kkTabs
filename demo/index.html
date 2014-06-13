@@ -4,6 +4,8 @@
         <title>kkTabs jQuery Plugin</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+        <link type="text/css" rel="stylesheet" href="../kktabs/css/kktabs.default.css" />
+
         <link type="text/css" rel="stylesheet" href="css/style.css" />
         <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -18,27 +20,33 @@
     <!--[if gt IE 9]><!--><body><!--<![endif]-->
         <div class="row">
             <div class="large-12 column text-center">
-                <h1>COMING SOON</h1>
+
+                <h1><strong>kkTabs</strong> jQuery plugin</h1>
+
                 <div class="tabs-demo-1">
-                    <div class="js-tab">
-                        <h2>Tytuł Zakładki 1</h2>
-                        <p>Treść zakładki 1</p>
+                    <div>
+                        <h2>Tab title 1</h2>
+                        <p>Pellentesque ante. Morbi consequat magna hendrerit ultricies. Curabitur adipiscing elit. Aenean sodales, velit justo euismod purus sit amet, vulputate luctus. Maecenas nec augue. Nam pharetra ut, accumsan rutrum, libero quis lacus diam vitae justo. 
+                        </p>
+                        <p>Nam placerat urna tortor, fermentum wisi, fermentum augue. Nam lorem nec eros. Vestibulum tempus dignissim. Donec vel pede.</p>
                     </div>
-                    <div class="js-tab">
-                        <h2>Tytuł Zakładki 2</h2>
-                        <p>Treść zakładki 2</p>
+                    <div>
+                        <h2>Tab title 2</h2>
+                        <p>Sed ipsum eleifend neque sollicitudin fringilla. Morbi quam ac arcu. Maecenas ante. Ut elit tincidunt molestie, neque. Sed porttitor, quam nibh vel risus.</p>
+                            
+                        <p>Nulla et magnis dis parturient montes, nascetur ridiculus mus. Morbi egestas, nunc interdum velit suscipit sapien sed tortor. Maecenas nec ligula quis ultricies massa. Duis consequat lacus tellus consectetuer adipiscing elit. </p>
+
+                        <p>Sed sagittis, nunc interdum adipiscing gravida mattis, magna porttitor ante ipsum dolor rhoncus placerat elementum fringilla purus est, et arcu. Mauris vel quam.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <script type="text/javascript" src="js/jQuery.1.11.1.min.js"></script>
-        <script type="text/javascript" src="../kkTabs/js/kkTabs.js"></script>
+        <script type="text/javascript" src="../kktabs/js/kkTabs.js"></script>
         <script>
             $(document).ready(function(){
-                $('.tabs-demo-1').kkTabs({
-                    showTitle : true
-                });
+                $('.tabs-demo-1').kkTabs();
             });
         </script>
     </body>

@@ -45,12 +45,10 @@
 ;(function($){
 
 	var defaults = {
-		'menuContenerClass'	: 'tabs',				// Klasa kontenera menu zakładek
-		'menuElementClass'	: 'element',			// Klasa każdego elementu menu
-
-		'textContenerClass'	: 'tab',				// Klasa kontenera treści zakładek
-		'textElementClass'	: 'js-tab',				// Klasa każdej zakładki
-
+		'menuContenerClass'	: 'kktabs-menu',		// Klasa kontenera menu zakładek
+		'menuElementClass'	: 'kktabs-link',		// Klasa każdego elementu menu
+		'textContenerClass'	: 'kktabs-content',		// Klasa kontenera treści zakładek
+		
 		'titleTag'			: 'h2',					// Tag w którym znajduje sie tytul zakladki
 
 		'tabsCount'			: null,					// Okreslamy ile bloków ma się połączyć w zakładki
@@ -67,7 +65,6 @@
 
 		onTabOpen			: function(){}			// Funkacja wywołana po otworzeniu zakładki
 													// Poprzez $(this) zwraca obiekt otwartej zakładki
-
 	};
 
 	$.fn.kkTabs = function(options){
@@ -130,11 +127,11 @@
 		 * @param  {int} number :: ilosc zakladek, jesli puste lub zero to pobieramy wszystko
 		 */
 		var getBlocks = function(number){
-			if (iT.children('.' + tabs.settings.textElementClass).length > 0) {
+			if (iT.children().length > 0) {
 				if (number) {
-					return iT.children('.' + tabs.settings.textElementClass).filter(':lt(' + number + ')');
+					return iT.children().filter(':lt(' + number + ')');
 				}else{
-					return iT.children('.' + tabs.settings.textElementClass);
+					return iT.children();
 				}
 			}else{
 				return false;
