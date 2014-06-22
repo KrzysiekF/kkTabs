@@ -2,8 +2,8 @@
  * PLUGIN jQuery - kkTabs
  * v 0.1.0 BETA
  *
- * WYMAGANIA:
- * - jQuery 1.7 lub nowsze
+ * YOU NEED:
+ * - jQuery >= 1.7
  *
  * URUCHOMIENIE:
  *
