@@ -43,11 +43,9 @@ jQuery plugin for tabs
 3. Plugin initialization:
 
 ```js
-<script tyle="text/javascript">
     $(document).ready(function(){
         $('.tabs').kkTabs();
     });
-</script>
 ```
 
 ## COMING SOON
