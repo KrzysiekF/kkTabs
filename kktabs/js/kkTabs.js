@@ -5,66 +5,37 @@
  * YOU NEED:
  * - jQuery >= 1.7
  *
- * URUCHOMIENIE:
- *
- * Oznacza to, że wtyczki możemy uzyć w dowolnym miejscu strony.
- * Jednak musi byc spełniony jeden warunek:
- *
- * - Bloki, które mają wejść w skład zakładek muszą być utoczone blokiem, 
- *	 do którego będziemy się odwoływać
- *
- *		Przykład:
- *			<div class="zakladki">
- *				<div class="zakladka">
- *					<h2>Tytuł Zakładki</h2>
- *					<p>Treść zakładki</p>
- *				</div>
- *				<div class="zakladka">
- *					<h2>Tytuł Zakładki</h2>
- *					<p>Treść zakładki</p>
- *				</div>
- *			</div>
- *
- * - Skrypt:
- *			<script tyle="text/javascript">
- *				$(document).ready(function(){
- *					$('.zakladki').kkTabs();
- *				});
- *			</script>
- *
- * 3. API:
- *
- *		Przykład bazujący na pkt. 1:
+ * API:
  *		
- *		- ideoTabsVar.showTab(0); - otwiera wyznaczoną zakładkę (index przekazujemy do funkcji ... indexujemy od 0)
- *		- ideoTabsVar.nextTab(); - otwiera następną zakładkę
- *		- ideoTabsVar.prevTab(); - otwiera poprzednią zakładkę
+ *	- tabsVar.showTab(0); - open tab by index (remember index starts at 0)
+ *	- tabsVar.nextTab(); - open next tab
+ *	- tabsVar.prevTab(); - open prev tab
  * 
  */
 
 ;(function($){
 
 	var defaults = {
-		'menuContenerClass'	: 'kktabs-menu',		// Klasa kontenera menu zakładek
-		'menuElementClass'	: 'kktabs-link',		// Klasa każdego elementu menu
+		'menuContenerClass'	: 'kktabs-menu',		// Menu box class
+		'menuElementClass'	: 'kktabs-link',		// Menu elements class
 		'textContenerClass'	: 'kktabs-content',		// Klasa kontenera treści zakładek
 		
-		'titleTag'			: 'h2',					// Tag w którym znajduje sie tytul zakladki
+		'titleTag'			: 'h2',					// HTML Tag with tab title
 
-		'tabsCount'			: null,					// Okreslamy ile bloków ma się połączyć w zakładki
-		'showTitle'			: false,				// Czy ma się wyświetlić tytuł zakładki
-		'showRandom'		: false,				// Na starcie otwieramy przypadkową zakladkę
-		'hashLinks'			: true,					// Możliwość odwolania się do zakładek poprzez adres strony
+		'tabsCount'			: null,					// Specifies how many blocks you want to connect to tabs
+		'showTitle'			: false,				// Do you want to show tabs title
+		'showRandom'		: false,				// Do you want show random tab
+		'hashLinks'			: true,					// Open tab by url
 
-		'hoverClass'		: false,				// Czy po najechaniu na element menu ma być dodawana klasa na tym elemencie?
-													// Jeśli TAK wpisujemy nazwę klasy.
+		'hoverClass'		: false,				// Do you want add class on hover menu element?
+													// If you want, you can enter it here
 
-		'firstButtonClass'	: 'first',				// Klasa dla pierwszego elementu menu zakladek
-		'lastButtonClass'	: 'last',				// Klasa dla ostatniego elementu menu zakladek
-		'activeButtonClass' : 'active',				// Klasa dla aktywnej zakładki
+		'firstButtonClass'	: 'first',				// Class for first menu element
+		'lastButtonClass'	: 'last',				// Class for last menu element
+		'activeButtonClass' : 'active',				// Class for active menu element
 
-		onTabOpen			: function(){}			// Funkacja wywołana po otworzeniu zakładki
-													// Poprzez $(this) zwraca obiekt otwartej zakładki
+		onTabOpen			: function(){}			// Callback after open tab
+													// You can use $(this) in this function
 	};
 
 	$.fn.kkTabs = function(options){
