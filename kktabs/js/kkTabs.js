@@ -37,6 +37,8 @@
 		onTabOpen			: function(){}			// Callback after open tab
 													// You can use $(this) in this function
 	};
+	
+	var count = 1;
 
 	$.fn.kkTabs = function(options){
 
@@ -114,7 +116,6 @@
 		 * @param  {object} tabBlocks :: objekt zawierajacy bloki, z ktorych maja powstac zakladki
 		 */
 		var generateTabs = function(tabBlocks){
-			var count = 1;
 			tabBlocks.each(function(){
 				var block = $(this);
 
@@ -133,11 +134,11 @@
 								.addClass(tabs.settings.menuElementClass)
 								.addClass(blockTitleClass)
 								.attr({ 'rel' : blockID, 'href' : blockHref })
-								.data('name', blockName)
+								.data('tab-name', blockName)
 								.html(blockTitle);
 
 				if (tabs.settings.hashLinks) {
-					button.attr({'data-name' : setButtonName(button, count)});
+					button.attr({'data-tab-name' : setButtonName(button, count)});
 				}
 
 				// Dodajemy przycisk do menu
@@ -205,7 +206,7 @@
 			var hash = location.hash.split('#');
 			
 			hash = hash[1];
-			var element = tabsMenuContener.find('[data-name="' + hash + '"]');
+			var element = tabsMenuContener.find('[data-tab-name="' + hash + '"]');
 
 			if(element.length > 0){
 				return hash;
@@ -217,8 +218,8 @@
 
 		var setButtonName = function(button, count){
 
-			if (button.data('name')) {
-				return button.data('name');
+			if (button.data('tab-name')) {
+				return button.data('tab-name');
 			}else{
 				return 'tab-' + count;
 			}
@@ -253,7 +254,7 @@
 		};
 
 		iT.showTabByHash = function(hash){
-			var index = tabsMenuContener.find('[data-name="' + hash + '"]').index();
+			var index = tabsMenuContener.find('[data-tab-name="' + hash + '"]').index();
 			iT.showTab(index);
 		};
 
