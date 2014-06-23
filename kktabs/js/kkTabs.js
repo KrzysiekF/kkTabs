@@ -6,39 +6,39 @@
  * - jQuery >= 1.7
  *
  * API:
- *
- *		Przykład bazujący na pkt. 1:
  *		
- *		- ideoTabsVar.showTab(0); - otwiera wyznaczoną zakładkę (index przekazujemy do funkcji ... indexujemy od 0)
- *		- ideoTabsVar.nextTab(); - otwiera następną zakładkę
- *		- ideoTabsVar.prevTab(); - otwiera poprzednią zakładkę
+ *	- tabsVar.showTab(0); - open tab by index (remember index starts at 0)
+ *	- tabsVar.nextTab(); - open next tab
+ *	- tabsVar.prevTab(); - open prev tab
  * 
  */
 
 ;(function($){
 
 	var defaults = {
-		'menuContenerClass'	: 'kktabs-menu',		// Klasa kontenera menu zakładek
-		'menuElementClass'	: 'kktabs-link',		// Klasa każdego elementu menu
+		'menuContenerClass'	: 'kktabs-menu',		// Menu box class
+		'menuElementClass'	: 'kktabs-link',		// Menu elements class
 		'textContenerClass'	: 'kktabs-content',		// Klasa kontenera treści zakładek
 		
-		'titleTag'			: 'h2',					// Tag w którym znajduje sie tytul zakladki
+		'titleTag'			: 'h2',					// HTML Tag with tab title
 
-		'tabsCount'			: null,					// Okreslamy ile bloków ma się połączyć w zakładki
-		'showTitle'			: false,				// Czy ma się wyświetlić tytuł zakładki
-		'showRandom'		: false,				// Na starcie otwieramy przypadkową zakladkę
-		'hashLinks'			: true,					// Możliwość odwolania się do zakładek poprzez adres strony
+		'tabsCount'			: null,					// Specifies how many blocks you want to connect to tabs
+		'showTitle'			: false,				// Do you want to show tabs title
+		'showRandom'		: false,				// Do you want show random tab
+		'hashLinks'			: true,					// Open tab by url
 
-		'hoverClass'		: false,				// Czy po najechaniu na element menu ma być dodawana klasa na tym elemencie?
-													// Jeśli TAK wpisujemy nazwę klasy.
+		'hoverClass'		: false,				// Do you want add class on hover menu element?
+													// If you want, you can enter it here
 
-		'firstButtonClass'	: 'first',				// Klasa dla pierwszego elementu menu zakladek
-		'lastButtonClass'	: 'last',				// Klasa dla ostatniego elementu menu zakladek
-		'activeButtonClass' : 'active',				// Klasa dla aktywnej zakładki
+		'firstButtonClass'	: 'first',				// Class for first menu element
+		'lastButtonClass'	: 'last',				// Class for last menu element
+		'activeButtonClass' : 'active',				// Class for active menu element
 
-		onTabOpen			: function(){}			// Funkacja wywołana po otworzeniu zakładki
-													// Poprzez $(this) zwraca obiekt otwartej zakładki
+		onTabOpen			: function(){}			// Callback after open tab
+													// You can use $(this) in this function
 	};
+	
+	var count = 1;
 
 	$.fn.kkTabs = function(options){
 
@@ -116,7 +116,6 @@
 		 * @param  {object} tabBlocks :: objekt zawierajacy bloki, z ktorych maja powstac zakladki
 		 */
 		var generateTabs = function(tabBlocks){
-			var count = 1;
 			tabBlocks.each(function(){
 				var block = $(this);
 
@@ -135,11 +134,11 @@
 								.addClass(tabs.settings.menuElementClass)
 								.addClass(blockTitleClass)
 								.attr({ 'rel' : blockID, 'href' : blockHref })
-								.data('name', blockName)
+								.data('tab-name', blockName)
 								.html(blockTitle);
 
 				if (tabs.settings.hashLinks) {
-					button.attr({'data-name' : setButtonName(button, count)});
+					button.attr({'data-tab-name' : setButtonName(button, count)});
 				}
 
 				// Dodajemy przycisk do menu
@@ -207,7 +206,7 @@
 			var hash = location.hash.split('#');
 			
 			hash = hash[1];
-			var element = tabsMenuContener.find('[data-name="' + hash + '"]');
+			var element = tabsMenuContener.find('[data-tab-name="' + hash + '"]');
 
 			if(element.length > 0){
 				return hash;
@@ -219,8 +218,8 @@
 
 		var setButtonName = function(button, count){
 
-			if (button.data('name')) {
-				return button.data('name');
+			if (button.data('tab-name')) {
+				return button.data('tab-name');
 			}else{
 				return 'tab-' + count;
 			}
@@ -255,7 +254,7 @@
 		};
 
 		iT.showTabByHash = function(hash){
-			var index = tabsMenuContener.find('[data-name="' + hash + '"]').index();
+			var index = tabsMenuContener.find('[data-tab-name="' + hash + '"]').index();
 			iT.showTab(index);
 		};
 
