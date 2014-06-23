@@ -5,34 +5,7 @@
  * YOU NEED:
  * - jQuery >= 1.7
  *
- * URUCHOMIENIE:
- *
- * Oznacza to, że wtyczki możemy uzyć w dowolnym miejscu strony.
- * Jednak musi byc spełniony jeden warunek:
- *
- * - Bloki, które mają wejść w skład zakładek muszą być utoczone blokiem, 
- *	 do którego będziemy się odwoływać
- *
- *		Przykład:
- *			<div class="zakladki">
- *				<div class="zakladka">
- *					<h2>Tytuł Zakładki</h2>
- *					<p>Treść zakładki</p>
- *				</div>
- *				<div class="zakladka">
- *					<h2>Tytuł Zakładki</h2>
- *					<p>Treść zakładki</p>
- *				</div>
- *			</div>
- *
- * - Skrypt:
- *			<script tyle="text/javascript">
- *				$(document).ready(function(){
- *					$('.zakladki').kkTabs();
- *				});
- *			</script>
- *
- * 3. API:
+ * API:
  *
  *		Przykład bazujący na pkt. 1:
  *		
