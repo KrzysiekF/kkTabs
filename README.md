@@ -5,7 +5,7 @@ jQuery plugin for tabs
 
 ##How to install kkTabs Plugin?
 
-1 In a page header following files should be included:
+###1 In a page header following files should be included:
 
 * jQuery library - you can download [HERE][jquery]
 
@@ -25,7 +25,7 @@ jQuery plugin for tabs
 <link href="kktabs/css/kktabs.default.css" rel="stylesheet" type="text/css">
 ```
 
-2 HTML structure:
+###2 HTML structure:
 
 ```html
 <div class="tabs">
@@ -40,7 +40,7 @@ jQuery plugin for tabs
 </div>
 ```
 
-3 Plugin initialization:
+###3 Plugin initialization:
 
 ```js
     $(document).ready(function(){
