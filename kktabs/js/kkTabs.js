@@ -83,6 +83,12 @@
 
 			createHTMLObjs();
 			generateTabs(tabBlocks);
+
+			// $(window).on('resize', function(){
+			// 	windowResizeMonitor(function(){
+			// 		console.log('Done!');
+			// 	}, 500, 'ID1');
+			// });
 		};
 
 		/**
@@ -228,6 +234,19 @@
 		var getOpenIndex = function(){
 			return tabsMenuContener.find('.' + tabs.settings.activeButtonClass).index();
 		};
+
+		var windowResizeMonitor = (function () {
+			var timers = {};
+			return function(callback, time, uniqueID){
+				if (!uniqueID) {
+					uniqueID = 'I dont have uniqueID!';
+				}
+				if (timers[uniqueID]) {
+					clearTimeout(timers[uniqueID]);
+				}
+				timers[uniqueID] = setTimeout(callback, time);
+			};
+		})();
 
 		/* 
 		==========================================
